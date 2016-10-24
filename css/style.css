@@ -2,7 +2,7 @@
 * @Author: hoangphucvu
 * @Date:   2016-10-21 09:15:22
 * @Last Modified by:   hoangphucvu
-* @Last Modified time: 2016-10-21 09:16:31
+* @Last Modified time: 2016-10-24 07:50:47
 */
 html{
 	height: 100%;
@@ -14,4 +14,7 @@ body{
 }
 #map{
 	height: 100%;
+}
+#map-search{
+	margin: 5%;
 }
