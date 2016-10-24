@@ -2,7 +2,7 @@
 * @Author: hoangphucvu
 * @Date:   2016-10-21 09:08:50
 * @Last Modified by:   hoangphucvu
-* @Last Modified time: 2016-10-21 13:40:55
+* @Last Modified time: 2016-10-24 15:43:40
 */
 
 (function(window,google,mapster){
@@ -10,5 +10,5 @@
 	var options= mapster.MAP_OPTIONS,
 	element = document.getElementById('map'),
 	//map
-	map = new google.maps.Map(element,options);
+	map = mapster.create(element,options);
 }(window,google,window.Mapster || (window.Mapster = {})));
