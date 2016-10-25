@@ -2,23 +2,33 @@
 * @Author: hoangphucvu
 * @Date:   2016-10-21 14:27:37
 * @Last Modified by:   hoangphucvu
-* @Last Modified time: 2016-10-24 15:42:28
+* @Last Modified time: 2016-10-25 08:10:34
 */
-
+//library for easy access
 (function(window,google){
 	var Mapster = (function(){
+		//constructor
 		function Mapster(element,opts){
 			this.gMap = new google.maps.Map(element,opts);
 		}
 
+		//represent for mapster properties
 		Mapster.prototype = {
-
+			zoom:function(level){
+				if(level) {
+					this.gMap.setZoom(level);
+				}
+				else {
+					return this.gMap.getZoom();
+				}
+			}
 		};
 		return Mapster;
 	}());
 
-	Mapster.create = function(){
-		return new Mapster();
+	//getter
+	Mapster.create = function(element,opts){
+		return new Mapster(element,opts);
 	};
 
 	window.Mapster = Mapster;

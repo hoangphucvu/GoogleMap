@@ -2,7 +2,7 @@
 * @Author: hoangphucvu
 * @Date:   2016-10-21 13:32:12
 * @Last Modified by:   hoangphucvu
-* @Last Modified time: 2016-10-21 13:46:49
+* @Last Modified time: 2016-10-25 07:17:25
 */
 
 (function(window, google, mapster){
@@ -11,7 +11,6 @@
 			lat:10.724400,
 			lng:106.724547
 		},
-		zoom:10,
 		disableDefaultUI:false,
 		scrollwheel:false,
 		draggable:true,
