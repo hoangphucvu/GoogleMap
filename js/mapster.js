@@ -2,7 +2,7 @@
 * @Author: hoangphucvu
 * @Date:   2016-10-21 14:27:37
 * @Last Modified by:   hoangphucvu
-* @Last Modified time: 2016-10-25 09:27:43
+* @Last Modified time: 2016-10-25 09:53:48
 */
 //library for easy access
 (function(window,google){
@@ -29,7 +29,22 @@
 					//excute function
 					callback.call(self, event);
 				});
+			},
+			addMarker: function(lat,lng,draggable){
+				this._createMarker(lat,lng,draggable);
+			},
+			_createMarker:function(lat,lng,draggable){
+				var opts = {
+					position: {
+						lat:lat,
+						lng:lng
+					},
+					draggable:draggable,
+					map:this.gMap
+				};
+				return new google.maps.Marker(opts);
 			}
+
 		};
 		return Mapster;
 	}());
