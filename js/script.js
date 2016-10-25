@@ -2,7 +2,7 @@
 * @Author: hoangphucvu
 * @Date:   2016-10-21 09:08:50
 * @Last Modified by:   hoangphucvu
-* @Last Modified time: 2016-10-25 09:53:15
+* @Last Modified time: 2016-10-25 10:15:44
 */
 //main script call map-option and mapster
 (function(window,mapster){
@@ -16,5 +16,15 @@
 		alert('click');
 		console.log(this);
 	});*/
-	map.addMarker(10.724400,106.724547,true);
+	map.addMarker({
+		lat:10.724400,
+		lng:106.724547,
+		draggable:true,
+		event:{
+			name:'click',
+			callback: function(){
+				alert('click');
+			}
+		}
+	});
 }(window,window.Mapster || (window.Mapster = {})));

@@ -2,7 +2,7 @@
 * @Author: hoangphucvu
 * @Date:   2016-10-21 14:27:37
 * @Last Modified by:   hoangphucvu
-* @Last Modified time: 2016-10-25 09:53:48
+* @Last Modified time: 2016-10-25 10:20:51
 */
 //library for easy access
 (function(window,google){
@@ -23,25 +23,31 @@
 				}
 			},
 			//using _ to make it private
-			_on: function(event,callback){
+			_on: function(opts){
 				var self = this;
-				google.maps.event.addListener(this.gMap,event,function(event){
+				google.maps.event.addListener(opts.obj,opts.event,function(event){
 					//excute function
-					callback.call(self, event);
+					opts.callback.call(self, event);
 				});
 			},
-			addMarker: function(lat,lng,draggable){
-				this._createMarker(lat,lng,draggable);
-			},
-			_createMarker:function(lat,lng,draggable){
-				var opts = {
-					position: {
-						lat:lat,
-						lng:lng
-					},
-					draggable:draggable,
-					map:this.gMap
+			addMarker: function(opts){
+				var marker;
+				opts.position = {
+					lat:opts.lat,
+					lng:opts.lng
 				};
+				//add lat & lng from opts obj to createMarker
+				marker = this._createMarker(opts);
+				if (opts.event) {
+					this._on({
+						obj:marker,
+						event:opts.event.name,
+						callback:opts.event.callback
+					});
+				}
+			},
+			_createMarker:function(opts){
+				opts.map = this.gMap;
 				return new google.maps.Marker(opts);
 			}
 
