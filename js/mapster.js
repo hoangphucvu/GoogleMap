@@ -2,7 +2,7 @@
 * @Author: hoangphucvu
 * @Date:   2016-10-21 14:27:37
 * @Last Modified by:   hoangphucvu
-* @Last Modified time: 2016-10-25 08:10:34
+* @Last Modified time: 2016-10-25 09:27:43
 */
 //library for easy access
 (function(window,google){
@@ -21,6 +21,14 @@
 				else {
 					return this.gMap.getZoom();
 				}
+			},
+			//using _ to make it private
+			_on: function(event,callback){
+				var self = this;
+				google.maps.event.addListener(this.gMap,event,function(event){
+					//excute function
+					callback.call(self, event);
+				});
 			}
 		};
 		return Mapster;
